@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Background from './components/Background';
+import ScrollHint from './components/ScrollHint';
 import Landing from './sections/Landing';
 import Special from './sections/Special';
 import Moments from './sections/Moments';
@@ -11,6 +12,12 @@ import Proposal from './sections/Proposal';
 function App() {
   const [stage, setStage] = useState('main'); // 'main' or 'secret' or 'proposal'
   const [journeyStarted, setJourneyStarted] = useState(false);
+  const [showScrollHint, setShowScrollHint] = useState(false);
+
+  const startJourney = () => {
+    setJourneyStarted(true);
+    setShowScrollHint(true);
+  };
 
   // Sync scroll to top on stage change
   useEffect(() => {
@@ -37,12 +44,14 @@ function App() {
   return (
     <main className="bg-romantic-black relative">
       <Background />
+      <ScrollHint isVisible={showScrollHint} onDismiss={() => setShowScrollHint(false)} />
 
       {!journeyStarted ? (
         <div className="h-screen flex items-center justify-center">
-          <Landing onStart={() => setJourneyStarted(true)} />
+          <Landing onStart={startJourney} />
         </div>
       ) : (
+
         <div className="relative">
           <Landing onStart={() => { }} />
           <Special />
