@@ -33,7 +33,7 @@ const Meaning = () => {
                 }}
             />
 
-            <div className="max-w-4xl text-center space-y-8 z-10">
+            <div className="max-w-4xl text-center space-y-6 sm:space-y-12 z-10 px-2">
                 {lines.map((line, i) => (
                     <motion.p
                         key={i}
@@ -41,7 +41,7 @@ const Meaning = () => {
                         whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                         viewport={{ once: false, amount: 0.8 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="text-2xl md:text-5xl font-light text-valentine-pink tracking-wide glow-text"
+                        className="text-xl sm:text-4xl md:text-5xl font-light text-valentine-pink tracking-wide glow-text leading-relaxed"
                     >
                         {line}
                     </motion.p>
@@ -49,14 +49,14 @@ const Meaning = () => {
             </div>
 
             <motion.div
-                className="mt-24 max-w-2xl text-center"
+                className="mt-16 sm:mt-24 max-w-sm sm:max-w-2xl text-center px-4"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1.5 }}
             >
-                <p className="text-valentine-red/80 italic text-xl border-t border-valentine-pink/10 pt-8">
-                    “I don’t promise perfection,<br />
-                    but I promise honesty, effort,<br />
+                <p className="text-valentine-red/80 italic text-base sm:text-xl border-t border-valentine-pink/10 pt-8 leading-relaxed">
+                    “I don’t promise perfection,<br className="hidden sm:block" />
+                    but I promise honesty, effort,<br className="hidden sm:block" />
                     and a love that chooses you every day.”
                 </p>
             </motion.div>
