@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-romantic-black: #05060a;
+  --color-romantic-navy: #0a0f1d;
+  --color-valentine-pink: #ff4d6d;
+  --color-valentine-red: #c9184a;
+  --color-blush-pink: #fbcfe8;
+  --color-soft-lavender: #e9d5ff;
+
+  --font-outfit: "Outfit", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  :root {
+    font-family: var(--font-outfit);
+    background-color: var(--color-romantic-black);
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .glow-text {
+    text-shadow: 0 0 15px rgba(255, 77, 109, 0.6), 0 0 30px rgba(255, 77, 109, 0.2);
+  }
+
+  .glow-box {
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl;
+  }
+
+  .cinematic-gradient {
+    background: radial-gradient(circle at center, var(--color-romantic-navy) 0%, var(--color-romantic-black) 100%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes bounce-slow {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+}
